@@ -45,6 +45,6 @@ class Album extends Model
      */
     public function getRouteKeyName()
     {
-        return $this->title;
+        return 'url';
     }
 }

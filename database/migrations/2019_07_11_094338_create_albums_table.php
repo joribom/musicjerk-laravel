@@ -21,6 +21,7 @@ class CreateAlbumsTable extends Migration
             $table->string('artist');
             $table->bigInteger('selected_by')->unsigned();
             $table->float('score');
+            $table->string('url');
             $table->string('image_url')->nullable();
             $table->string('summary')->nullable();
             $table->string('spotify_id')->nullable();
