@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Big Musicjerk's Small Website
                 </div>
 
                 <div class="links">
