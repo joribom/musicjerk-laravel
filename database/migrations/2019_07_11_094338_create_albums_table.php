@@ -23,7 +23,7 @@ class CreateAlbumsTable extends Migration
             $table->float('score');
             $table->string('url');
             $table->string('image_url')->nullable();
-            $table->string('summary')->nullable();
+            $table->text('summary')->nullable();
             $table->string('spotify_id')->nullable();
             $table->json('genres')->nullable();
             $table->json('styles')->nullable();

@@ -1,0 +1,61 @@
+$montserrat: 'Montserrat Regular', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$montserrat-bold: 'Montserrat Bold', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+ background-color: #F9F1DC;
+ outline: 0;
+ border: 0;
+ padding: 10px 15px;
+ color: black;
+ font-family: 'Lato Regular', sans-serif;
+ font-size: 14px;
+ text-transform: capitalize;
+ height: 50px;
+ width: 200px;
+ cursor: pointer;
+}
+.btn-primary:hover {
+ background-color: #808080 !important;
+ color: whitesmoke !important;
+}
+.btn-secondary,
+.btn-secondary:active,
+.btn-secondary:visited,
+.btn-secondary:focus {
+ background-color: #003434;
+ outline: 0;
+ border: 0;
+ padding: 10px 15px;
+ color: white;
+ font-family: 'Lato Regular', sans-serif;
+ font-size: 14px;
+ text-transform: uppercase;
+ height: 50px;
+ width: 250px;
+ cursor: pointer;
+}
+.btn-secondary:hover {
+ background-color: #bbbbbb !important;
+ color: white !important;
+}
+.btn-small,
+.btn-small:active,
+.btn-small:visited,
+.btn-small:focus {
+ background-color: #F9F1DC;
+ color: #003434;
+ border: 0;
+ outline: 0;
+ font-family: $lato;
+ font-size: 14px;
+ height: 25px;
+ width: 50px;
+ cursor: pointer;
+}
+.btn-small:hover {
+ background-color: #808080;
+ color: #f8f8f8;
+ text-decoration: none;
+}

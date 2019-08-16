@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,700,300italic,400italic,700italic");
+@font-face {
+ font-family: 'FiraSans';
+ src: url('fonts/FiraSans-LightItalic.otf');
+ src: url('fonts/FiraSans-Regular.otf');
+ src: url('fonts/FiraSans-SemiBold.otf');
+ font-weight: normal;
+ font-style: normal;
+}
+$fira-sans: 'FiraSansSemiBold','Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$lato: 'Lato Regular','Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$lato-bold: "Lato Bold", 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$montserrat: 'Montserrat Regular', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$montserrat-bold: 'Montserrat Bold', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$primary-color: #f8f8f8;
+$secondary-color: #003434;
+$beige: #f9f1dc;
+$black-color: black;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+ font-family: $lato;
+ font-weight: 700;
+}
+h1 {
+ font-family: $lato;
+ font-weight: 700;
+ text-transform: none !important;
+ color: black;
+ font-size: 2em;
+ line-height: 45px;
+ padding-top: 10px;
+ }
+h2 {
+ font-family: "Georgia Italic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ font-weight: 700;
+ font-size: 1.5em;
+ line-height: 36px;
+ text-transform: uppercase;
+ color: #f9f1dc;
+ margin: 0;
+ padding-top: 10px;
+}
+h3 {
+ font-family: "Georgia Italic", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ font-weight: 700;
+ font-size: 1.17em;
+ line-height: 29px;
+ color: $beige;
+ margin: 0;
+ padding-bottom: 10px;
+ padding-top: 10px;
+}
+h4 {
+ font-family: $lato;
+ font-weight: 700;
+ font-size: 1.875em;
+ line-height: 49px;
+ text-transform: none !important;
+ color: $black-color;
+ padding-top: 10px;
+}

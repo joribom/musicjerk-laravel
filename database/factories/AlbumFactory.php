@@ -17,5 +17,6 @@ $factory->define(Album::class, function (Faker $faker) {
         'selected_by' => $faker->randomElement($users),
         'url' => strtolower(str_replace(' ', '-', $title) . '-' . str_replace(' ', '-', $artist)),
         'score' => $faker->randomFloat(2, 0, 10),
+        'summary' => $faker->text(2000),
     ];
 });
