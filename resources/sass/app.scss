@@ -3,8 +3,13 @@
 
 // Variables
 @import 'base/variables';
-@import 'base/*';
-@import 'components/*';
+// @import 'base/*';
+// @import 'components/*';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import 'bootstrap.min.css';
+
+.jumbotron {
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
