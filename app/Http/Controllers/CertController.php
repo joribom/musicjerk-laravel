@@ -7,9 +7,9 @@ use App\CertKeys;
 
 class CertController extends Controller
 {
-    public function challengeResponse($key){
-       $cert = CertKeys::where('key', $key)->first();
-        return response($cert->response);
+    public function challengeResponse(CertKeys $certKeys){
+        //$cert = CertKeys::find($key);
+        return response($certKeys->response);
     }
 
     public function index(){
@@ -31,6 +31,6 @@ class CertController extends Controller
 
         $cert->save();
 
-        return response($request->input("key"));
+        return redirect("/");
     }
 }

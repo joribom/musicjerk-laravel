@@ -15,7 +15,7 @@ class CreateCertKeysTable extends Migration
     public function up()
     {
         Schema::create('cert_keys', function (Blueprint $table) {
-            $table->string('key');
+            $table->string('key')->primary();
             $table->string('response');
             $table->timestamps();
         });

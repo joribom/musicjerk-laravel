@@ -21,6 +21,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/.well-known/acme-challenge/{key}', 'CertController@challengeResponse');
+Route::get('/.well-known/acme-challenge/{certKeys}', 'CertController@challengeResponse');
 Route::get('/add-cert', 'CertController@index');
 Route::post('/add-cert', 'CertController@store');
