@@ -14,8 +14,8 @@ class CreateLibrariesTable extends Migration
     public function up()
     {
         Schema::create('libraries', function (Blueprint $table) {
-            $table->bigInteger('user_id');
-            $table->bigInteger('album_id');
+            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('album_id')->unsigned();
             $table->timestamps();
         });
 
