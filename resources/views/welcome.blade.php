@@ -9,28 +9,14 @@
         </div>
 
         <div class="content">
-            <div class="row justify-content-md-center">
-                <div class="col-1">
-                    <a class="text-white btn btn-outline-secondary" role="button" href="https://laravel.com/docs">Docs</a>
-                </div>
-                <div class="col-1">
-                    <a class="text-white btn btn-outline-secondary" role="button" href="https://laracasts.com">Laracasts</a>
-                </div>
-                <div class="col-1">
-                    <a class="text-white btn btn-outline-secondary" role="button" href="https://laravel-news.com">News</a>
-                </div>
-                <div class="col-1">
-                    <a class="text-white btn btn-outline-secondary" role="button" href="https://blog.laravel.com">Blog</a>
-                </div>
-                <div class="col-1">
-                    <a class="text-white btn btn-outline-secondary" role="button" href="https://nova.laravel.com">Nova</a>
-                </div>
-                <div class="col-1">
-                    <a class="text-white btn btn-outline-secondary" role="button" href="https://forge.laravel.com">Forge</a>
-                </div>
-                <div class="col-1">
-                    <a class="text-white btn btn-outline-secondary" role="button" href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+            <div class="d-flex align-items-center justify-content-around flex-wrap" style="max-width: 600px; margin: 0 auto; margin-top: -10px;">
+                <a class="text-white btn btn-outline-secondary" role="button" style="margin-top: 10px;" href="https://laravel.com/docs">Docs</a>
+                <a class="text-white btn btn-outline-secondary" role="button" style="margin-top: 10px;" href="https://laracasts.com">Laracasts</a>
+                <a class="text-white btn btn-outline-secondary" role="button" style="margin-top: 10px;" href="https://laravel-news.com">News</a>
+                <a class="text-white btn btn-outline-secondary" role="button" style="margin-top: 10px;" href="https://blog.laravel.com">Blog</a>
+                <a class="text-white btn btn-outline-secondary" role="button" style="margin-top: 10px;" href="https://nova.laravel.com">Nova</a>
+                <a class="text-white btn btn-outline-secondary" role="button" style="margin-top: 10px;" href="https://forge.laravel.com">Forge</a>
+                <a class="text-white btn btn-outline-secondary" role="button" style="margin-top: 10px;" href="https://github.com/laravel/laravel">GitHub</a>
             </div>
         </div>
     </div>
