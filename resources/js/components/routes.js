@@ -1,3 +1,8 @@
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
+
 import Home from '../home/Home'
 import ExampleComponent from './ExampleComponent'
 
@@ -8,11 +13,21 @@ const musicjerkRoutes = [
         component: Home,
     },
     {
-        path: '/home',
-        name: 'welcome',
+        path: '/albums',
+        name: 'albums',
         component: ExampleComponent,
         props: { title: "This is the SPA home" }
     },
+    {
+        path: '/login',
+        name: 'login',
+        component: ExampleComponent
+    },
 ]
 
-export { musicjerkRoutes }
+const router = new VueRouter({
+    mode: 'history',
+    routes: musicjerkRoutes,
+})
+
+export { router }
