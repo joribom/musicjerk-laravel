@@ -2,7 +2,7 @@
 name: Backend
 about: Template for backend issues
 title: ''
-labels: php
+labels: backend
 assignees: joribom
 
 ---
