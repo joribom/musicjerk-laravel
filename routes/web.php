@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
+    return view('vueapp');
+});
+
+/*Route::get('/', function () {
     return view('welcome');
 });
 
@@ -23,4 +27,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/.well-known/acme-challenge/{certKeys}', 'CertController@challengeResponse');
 Route::get('/add-cert', 'CertController@index');
-Route::post('/add-cert', 'CertController@store');
+Route::post('/add-cert', 'CertController@store');*/

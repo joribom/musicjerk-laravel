@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\CertKeys;
+use Illuminate\Http\Request;
 
 class CertController extends Controller
 {
