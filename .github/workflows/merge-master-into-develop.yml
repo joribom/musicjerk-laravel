@@ -1,0 +1,13 @@
+name: merge-master-into-develop
+on:
+  push:
+    branches:
+      - master
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: git checkout develop
+      - run: git merge master --ff-only
+      - run: git push
