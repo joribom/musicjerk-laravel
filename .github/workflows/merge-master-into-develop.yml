@@ -7,10 +7,12 @@ jobs:
   merge-master-into-develop:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with: 
-          ref: develop
-      - run: git config user.name github-actions
-      - run: git config user.email github-actions@github.com
-      - run: git merge origin/master --ff-only
-      - run: git push
+      - uses: actions/checkout@master
+
+      - name: Merge development -> staging
+        uses: devmasx/merge-branch@v1.3.0
+        with:
+          type: now
+          from_branch: development
+          target_branch: staging
+          github_token: ${{ github.token }}
