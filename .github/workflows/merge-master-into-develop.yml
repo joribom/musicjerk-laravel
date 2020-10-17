@@ -4,12 +4,13 @@ on:
     branches:
       - master
 jobs:
-  check-bats-version:
+  merge-master-into-develop:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with: 
+          ref: develop
       - run: git config user.name github-actions
       - run: git config user.email github-actions@github.com
-      - run: git checkout develop
-      - run: git merge master --ff-only
+      - run: git merge origin/master --ff-only
       - run: git push
