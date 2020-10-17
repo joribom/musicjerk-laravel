@@ -4,8 +4,8 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import App from './components/App'
-import HomeView from './views/HomeView'
+import App from './App'
+import Home from './home/Home'
 import ExampleComponent from './components/ExampleComponent'
 // import Page from './components/Page'
 
@@ -15,7 +15,7 @@ const router = new VueRouter({
         {
             path: '/',
             name: 'home',
-            component: HomeView,
+            component: Home,
         },
         {
             path: '/home',
