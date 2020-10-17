@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<template>
     <div class="content">
         <div class="jumbotron text-center">
             <div class="container">
@@ -20,4 +18,7 @@
             </div>
         </div>
     </div>
-@endsection
+</template>
+<script>
+    export default { }
+</script>
