@@ -15,9 +15,14 @@
             </div>
     </nav>
     <main>
-        <transition name="fade" mode="out-in">
+        <div v-if="enableTransitions">
+            <transition name="fade" mode="out-in">
+                <router-view/>
+            </transition>
+        </div>
+        <div v-else>
             <router-view/>
-        </transition>
+        </div>
     </main>
 </div>
 </template>
@@ -35,5 +40,12 @@
 </style>
 
 <script>
-    export default {}
+    import settings from '../data/settings'
+    export default {
+        data () {
+            return {
+                'enableTransitions': settings.enableTransitions(),
+            }
+        }
+    }
 </script>
