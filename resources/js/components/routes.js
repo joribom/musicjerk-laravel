@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import Home from '../home/Home'
+import Login from '../login/Login'
 import ExampleComponent from './ExampleComponent'
 
 const musicjerkRoutes = [
@@ -21,7 +22,7 @@ const musicjerkRoutes = [
     {
         path: '/login',
         name: 'login',
-        component: ExampleComponent
+        component: Login
     },
 ]
 
