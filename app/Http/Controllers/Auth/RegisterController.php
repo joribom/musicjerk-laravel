@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -68,5 +70,36 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    /**
+     * Register a new user.
+     *
+     * @param  \Illuminate\Http\Request $request
+     *
+     * @return Response
+     */
+    public function register(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'same:password_verification'],
+            'password_verification' => ['required']
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                "message" => $validator->errors(),
+            ], 400);
+        } else {
+            $user = User::create(request(['name', 'email', 'password']));
+            Auth::login($user);
+            return response()->json([
+                "message" => "success",
+                "user_id" => $user->id,
+                "token" => $user->get_api_token(),
+            ], 200);
+        }
+        $credentials = $request->only('email', 'password');
     }
 }

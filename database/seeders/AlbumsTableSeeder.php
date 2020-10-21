@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 
 class AlbumsTableSeeder extends Seeder
@@ -11,6 +13,5 @@ class AlbumsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Album::class, 50)->create();
     }
 }
