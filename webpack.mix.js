@@ -1,4 +1,11 @@
 const mix = require('laravel-mix');
+mix.webpackConfig({
+    resolve: {
+        alias: {
+            'musicjerk': path.resolve(__dirname, 'resources', 'js')
+        }
+    }
+});
 
 /*
  |--------------------------------------------------------------------------
