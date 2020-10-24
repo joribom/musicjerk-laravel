@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::post('login', 'Auth\LoginController@authenticate');
+Route::get('check-logged-in', 'CheckLoginController@checkLoggedIn')
 Route::post('register', 'Auth\RegisterController@register');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
