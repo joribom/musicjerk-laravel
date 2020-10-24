@@ -3,9 +3,10 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import Home from '../home/Home'
-import Login from '../login/Login'
-import ExampleComponent from './ExampleComponent'
+import Home from 'musicjerk/home/Home'
+import Login from 'musicjerk/login/Login'
+import Register from 'musicjerk/login/Register'
+import ExampleComponent from 'musicjerk/components/ExampleComponent'
 
 const musicjerkRoutes = [
     {
@@ -24,6 +25,11 @@ const musicjerkRoutes = [
         name: 'login',
         component: Login
     },
+    {
+        path: '/register',
+        name: 'register',
+        component: Register
+    }
 ]
 
 const router = new VueRouter({

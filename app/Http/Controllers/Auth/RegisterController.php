@@ -85,11 +85,8 @@ class RegisterController extends Controller
                 "message" => $ex->getMessage()
             ], 500);
         }
-        Auth::login($user);
         return response()->json([
-            "message" => "success",
-            "user_id" => $user->id,
-            "token" => $user->get_api_token(),
+            "message" => "success"
         ], 200);
     }
 }

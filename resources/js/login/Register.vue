@@ -3,8 +3,12 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Login</div>
+                    <div class="card-header">Register</div>
                     <div class="card-body">
+                        <div class="form-group">
+                            <label for="emailInputLabel">Username</label>
+                            <input type="email" class="form-control" v-model="formData.name" id="emailInput" aria-describedby="emailHelp" placeholder="Enter name">
+                        </div>
                         <div class="form-group">
                             <label for="emailInputLabel">Email address</label>
                             <input type="email" class="form-control" v-model="formData.email" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email">
@@ -14,16 +18,11 @@
                             <input type="password" class="form-control" v-model="formData.password" id="passwordInput" placeholder="Password">
                         </div>
                         <div class="form-group">
-                            <router-link to="/register">Don't have an account? Register here!</router-link>
+                            <label for="passwordVerificationInputLabel">Verify Password</label>
+                            <input type="password" class="form-control" v-model="formData.password_verification" id="passwordVerificationInput" placeholder="Verify Password">
                         </div>
-                        <div class="row container">
-                            <div class="col-auto mr-auto form-check">
-                                <input type="checkbox" class="form-check-input" id="rememberMe">
-                                <label class="form-check-label" for="rememberMe">Remember me</label>
-                            </div>
-                            <div class="col-auto align-self-end justify-content-end">
-                                <button type="submit" v-on:click="handleLogin()" class="btn btn-primary align-self-end">Submit</button>
-                            </div>
+                        <div class="col-auto align-self-end justify-content-end">
+                            <button type="submit" v-on:click="handleRegister()" class="btn btn-primary align-self-end">Submit</button>
                         </div>
                     </div>
                 </div>
@@ -43,16 +42,18 @@ export default {
     data() {
         return {
             formData: {
+                'name': '',
                 'email': '',
                 'password': '',
+                'password_verification': '',
             }
         }
     },
 
     methods: {
-        handleLogin() {
-            this.$auth.login(this.formData).then(_ => {
-                this.$router.push('/');
+        handleRegister() {
+            this.$auth.register(this.formData).then(_ => {
+                this.$router.push('/login');
             });
         }
     }

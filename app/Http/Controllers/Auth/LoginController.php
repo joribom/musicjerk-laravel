@@ -45,11 +45,13 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            $token = Auth::user()->get_api_token();
+            $user = Auth::user();
             return response()
                 ->json([
                     'message' => "Authorized",
-                    'token' => $token
+                    'user_id' => $user->id,
+                    "name" => $user->name,
+                    'token' => $user->get_api_token(),
                 ], 200);
         } else {
             return response()
