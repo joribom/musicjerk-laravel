@@ -50,7 +50,7 @@ class LoginController extends Controller
                 ->json([
                     'message' => "Authorized",
                     'user_id' => $user->id,
-                    "name" => $user->name,
+                    'name' => $user->name,
                     'token' => $user->get_api_token(),
                 ], 200);
         } else {

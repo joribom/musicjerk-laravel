@@ -5,6 +5,7 @@ Vue.use(VueRouter)
 
 import Home from 'musicjerk/home/Home'
 import Login from 'musicjerk/login/Login'
+import Logout from 'musicjerk/login/Logout'
 import Register from 'musicjerk/login/Register'
 import ExampleComponent from 'musicjerk/components/ExampleComponent'
 
@@ -24,6 +25,11 @@ const musicjerkRoutes = [
         path: '/login',
         name: 'login',
         component: Login
+    },
+    {
+        path: '/logout',
+        name: 'logout',
+        component: Logout
     },
     {
         path: '/register',

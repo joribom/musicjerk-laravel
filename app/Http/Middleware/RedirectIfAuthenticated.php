@@ -18,8 +18,12 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
+            $user = Auth::user();
             return response()->json([
                 'message' => "Already logged in",
+                'user_id' => $user->id,
+                'name' => $user->name,
+                'token' => $user->get_api_token(),
             ], 200);
         }
 

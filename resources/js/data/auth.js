@@ -1,30 +1,67 @@
+import { wrap } from "lodash"
+
 export default class Auth {
     constructor() {
         console.log("Auth initialized.")
-        this.currentPromise = axios.get('/sanctum/csrf-cookie')
+        this.csrfCookieSet = false
+        this.currentPromise = axios.get('/sanctum/csrf-cookie').then(_ => {
+            this.csrfCookieSet = true
+        })
         this.userId = null
+        this.name = null
         this.loginToken = null
+        this.loginChangeListeners = []
+    }
+
+    listenOnLoginChange(func) {
+        this.loginChangeListeners.push(func);
+    }
+
+    updateLoginListeners() {
+        this.loginChangeListeners.forEach(func => {
+            func()
+        })
+    }
+
+    verifyCsrf() {
+        if (this.csrfCookieSet) {
+            return new Promise((resolve, _) => {
+                resolve()
+            })
+        } else {
+            return this.currentPromise
+        }
     }
 
     login(formData, remember) {
-        this.currentPromise = this.currentPromise.then(_ => {
-            axios.post('/api/login', formData).then(response => {
-                console.log(response);
-                this.userId = response.get('user_id')
+        return this.verifyCsrf().then(_ => {
+            return axios.post('/api/login', formData).then(result => {
+                this.userId = result.data.user_id
+                this.name = result.data.name
                 if (remember) {
-                    this.loginToken = response.get('token')
+                    this.loginToken = result.get('token')
                 }
+                this.updateLoginListeners()
             })
-        });
-        return this.currentPromise;
+        })
+    }
+
+    logout(){
+        return this.verifyCsrf().then(_ => {
+            return axios.get('/logout').then(result => {
+                this.userId = null
+                this.name = null
+                this.loginToken = null
+                this.updateLoginListeners()
+            })
+        })
     }
 
     register(formData) {
-        this.currentPromise = this.currentPromise.then(_ => {
-            axios.post('/api/register', formData).then(response => {
-                console.log(response);
+        return this.verifyCsrf().then(_ => {
+            return axios.post('/api/register', formData).then(result => {
+                console.log(result)
             })
         });
-        return this.currentPromise;
     }
 }

@@ -85,6 +85,7 @@ class RegisterController extends Controller
                 "message" => $ex->getMessage()
             ], 500);
         }
+        Auth::logout();
         return response()->json([
             "message" => "success"
         ], 200);

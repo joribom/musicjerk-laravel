@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Login</div>
+                    <div class="card-header">Login {{ this.$auth.userId }}</div>
                     <div class="card-body">
                         <div class="form-group">
                             <label for="emailInputLabel">Email address</label>
@@ -51,8 +51,20 @@ export default {
 
     methods: {
         handleLogin() {
-            this.$auth.login(this.formData).then(_ => {
+            this.$auth.login(this.formData, false).then(success => {
+                this.$root.$message.showAlert('Logged in as ' + this.$auth.name);
                 this.$router.push('/');
+            }).catch(error => {
+                console.log(error)
+                if (error.response) {
+                    var errorMessages = ''
+                    for (const [_, errorMessage] of Object.entries(error.response.data)) {
+                        errorMessages += errorMessage + "\n";
+                    }
+                    this.$root.$message.showDialog("Could not log in", errorMessages)
+                } else {
+                    this.$root.$message.showDialog("Could not log in", error)
+                }
             });
         }
     }

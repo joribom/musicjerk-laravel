@@ -52,8 +52,21 @@ export default {
 
     methods: {
         handleRegister() {
-            this.$auth.register(this.formData).then(_ => {
-                this.$router.push('/login');
+            this.$auth.register(this.formData).then(success => {
+                this.$root.$message.showDialog("Success", "User has been registered!", "Ok", () => {
+                    this.$router.push('/login');
+                })
+            }).catch(error => {
+                console.log(error)
+                if (error.response) {
+                    var errorMessages = ''
+                    for (const [_, errorMessage] of Object.entries(error.response.data)) {
+                        errorMessages += errorMessage + "\n";
+                    }
+                    this.$root.$message.showDialog("An error occured", errorMessages)
+                } else {
+                    this.$root.$message.showDialog("An error occured", errorMessages)
+                }
             });
         }
     }
