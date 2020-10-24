@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\RegisterUser;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use \Illuminate\Database\QueryException;
 
 class RegisterController extends Controller
 {
@@ -24,13 +26,6 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -79,27 +74,22 @@ class RegisterController extends Controller
      *
      * @return Response
      */
-    public function register(Request $request)
+    public function register(RegisterUser $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => ['required'],
-            'email' => ['required', 'email'],
-            'password' => ['required', 'same:password_verification'],
-            'password_verification' => ['required']
-        ]);
-        if ($validator->fails()) {
+        $data = $request->validated();
+        try {
+            $password = bcrypt($data['password']);
+            $user = User::create(['email' => $data['email'], 'name' => $data['name'], 'password' => $password]);
+        } catch(QueryException $ex){
             return response()->json([
-                "message" => $validator->errors(),
-            ], 400);
-        } else {
-            $user = User::create(request(['name', 'email', 'password']));
-            Auth::login($user);
-            return response()->json([
-                "message" => "success",
-                "user_id" => $user->id,
-                "token" => $user->get_api_token(),
-            ], 200);
+                "message" => $ex->getMessage()
+            ], 500);
         }
-        $credentials = $request->only('email', 'password');
+        Auth::login($user);
+        return response()->json([
+            "message" => "success",
+            "user_id" => $user->id,
+            "token" => $user->get_api_token(),
+        ], 200);
     }
 }

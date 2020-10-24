@@ -38,7 +38,7 @@
 </style>
 
 <script>
-    import settings from '../data/settings'
+    import settings from 'musicjerk/data/settings'
     export default {
         data () {
             return {

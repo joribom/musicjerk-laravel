@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginUser;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
@@ -23,13 +24,6 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
      * Create a new controller instance.
      *
      * @return void
@@ -46,10 +40,9 @@ class LoginController extends Controller
      *
      * @return Response
      */
-    public function authenticate(Request $request)
+    public function authenticate(LoginUser $request)
     {
         $credentials = $request->only('email', 'password');
-
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             $token = Auth::user()->get_api_token();
