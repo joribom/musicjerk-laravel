@@ -3,9 +3,11 @@ require('./bootstrap');
 
 import Vue from 'vue'
 
-import App from './App'
-import { router } from './components/routes'
+import App from 'musicjerk/App'
+import Auth from 'musicjerk/data/auth'
+import { router } from 'musicjerk/components/routes'
 
+Vue.prototype.$auth = new Auth()
 
 const app = new Vue({
     el: '#app',

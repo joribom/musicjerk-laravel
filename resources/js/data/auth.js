@@ -1,15 +1,14 @@
-export default {
-    data: {
+export default class Auth {
+    constructor() {
+        console.log("Auth initialized.")
+        this.currentPromise = axios.get('/sanctum/csrf-cookie')
+    }
 
-    },
-    methods: {
-        handleLogin() {
-            axios.get('/sanctum/csrf-cookie').then(response => {
+    handleLogin(formData) {
+        this.currentPromise.then(_ => {
+            axios.post('/api/login', formData).then(response => {
                 console.log(response);
-                axios.post('/api/login', this.formData).then(response => {
-                    console.log(response);
-                });
             });
-        }
+        });
     }
 }
